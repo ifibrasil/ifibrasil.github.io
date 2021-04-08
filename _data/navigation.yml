@@ -1,0 +1,7 @@
+# main links
+main:
+  - title: "Publicações"
+    url: /publicacoes/
+    permalink: /publicacoes/
+  - title: "Contato"
+    url: /contato

@@ -1,0 +1,258 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@charset "utf-8";
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
+
+.toc__menu {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  color: black;
+  font-size: 1.5em;
+  list-style: none;
+  font-size: 0.8rem;
+
+  a {
+    display: block;
+    padding: 0.2rem 0.2rem;
+    color: black;
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 1.5;
+    border-bottom: 1px solid $border-color;
+
+    &:hover {
+      color: #000;
+      background:#bbbbbb;
+    }
+  }
+
+  > li:last-child {
+    a {
+      padding-left: 0.2rem;
+      border-bottom: 1px solid $border-color;
+    }
+  }
+
+  li ul > li a {
+    padding-left: 0.2rem;
+    font-weight: normal;
+  }
+
+  li > ul {
+    padding-left: 0.2rem;
+  }
+
+  /* hide sub sub links on small screens*/
+  li > ul li {
+    display: none;
+
+    @include breakpoint($medium) {
+      display: block;
+    }
+  }
+}
+
+.sidebar__right {
+  margin-bottom: 1em;
+
+  @include breakpoint($large) {
+    position: sticky !important; /* added to make toc scroll with page */
+    float: left !important; /* added to makem toc scroll with page */
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-right: -1 * $right-sidebar-width-narrow;
+    padding-left: 1em;
+    padding-top: 1em !important; /* added to make toc scroll with page */
+    z-index: 10;
+
+    &.sticky {
+      @include clearfix();
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0px;
+      float: left;
+    }
+  }
+
+  @include breakpoint($x-large) {
+    width: 100%;
+  }
+}
+
+.splash .sidebar__right {
+  @include breakpoint($large) {
+    position: relative;
+    float: left;
+    margin-right: 0;
+  }
+
+  @include breakpoint($x-large) {
+    margin-right: 0;
+  }
+}
+
+.wide .sidebar__right {
+  margin-bottom: 1em;
+
+  @include breakpoint($large) {
+    position: fixed;
+    top: 16.2rem;
+    right: left;
+    width: 100%;
+    margin-right: initial;
+    padding-left: initial;
+    z-index: initial;
+
+    &.sticky {
+      float: left;
+    }
+  }
+
+  @include breakpoint($x-large) {
+    width: 100%;
+    margin-right: initial;
+  }
+}
+
+/* SIDEBAR */
+.sidebar {
+  @include clearfix();
+  // @include breakpoint(max-width $large) {
+  //   /* fix z-index order of follow links */
+  //   position: relative;
+  //   z-index: 10;
+  //   -webkit-transform: translate3d(0, 0, 0);
+  //   transform: translate3d(0, 0, 0);
+  // }
+  padding-left: 1em;
+  padding-right: 1em;
+  margin: auto;
+
+  @include breakpoint($large) {
+    left: 0;
+    width: calc(#{$right-sidebar-width-narrow} - 1em);
+    opacity: 0.75;
+    -webkit-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.sticky {
+      overflow-y: auto;
+      float: left;
+      /* calculate height of nav list
+         viewport height - nav height - masthead x-padding
+      */
+      //max-height: calc(100vh - #{$nav-height} - 2em);
+    }
+  }
+
+  @include breakpoint($x-large) {
+    width: $right-sidebar-width;
+  }
+
+  > * {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 0;
+    font-family: $sans-serif-narrow;
+  }
+
+  p,
+  li {
+    font-family: $sans-serif;
+    font-size: $type-size-6;
+    line-height: 1.5;
+  }
+
+  img {
+    width: 100%;
+
+    &.emoji {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+#main{
+
+  //float: right;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include breakpoint($large) {
+  &.single{
+    //float: right;
+    //vertical-align:top;
+    display: inline-block;
+    overflow:auto;
+   margin-left: auto;
+   max-width: 75%;
+  }
+}
+}
+
+
+
+.page{
+  @include breakpoint($large) {
+    overflow: auto;
+    float: left;
+    width: 100%;
+    padding-right: 0;
+  }
+
+  @include breakpoint($x-large) {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .page__inner-wrap {
+    float: left;
+    margin-top: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    clear: both;
+
+
+    .page__content,
+    .page__meta,
+    .page__share {
+      position: relative;
+      float: left;
+      margin-left: 0;
+      margin-right: 0;
+      width: 100%;
+      clear: both;
+    }
+  }
+}
+
+/*.author__urls-wrappe{
+  float: left;
+}*/
+/*
+.author__content{
+  background-color: aqua;
+  float: left;
+}
+
+.author__avatar{
+  float: left;
+}*/
