@@ -1,5 +1,5 @@
 ---
 title: "Impacto de medidas de gestão de pessoas sobre as despesas com pessoal"
 split_by: section
-permalink: /EE15/
+permalink: /EE15
 ---
